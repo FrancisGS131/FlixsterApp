@@ -17,7 +17,15 @@
         android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="7.5dp"
+        android:fontFamily="@font/adamina"
+        android:textAlignment="textStart"
         android:textSize="30sp"
+        android:textStyle="bold"
+        android:transitionName="movieTitle"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="8dp"
         tools:text="Maleficent: Mistress of Evil" />
 
     <RatingBar
@@ -25,13 +33,25 @@
         style="@style/Widget.AppCompat.RatingBar.Indicator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
         android:isIndicator="true"
         android:numStars="10"
-        android:rating="8.5" />
+        android:paddingBottom="7.5dp"
+        android:rating="8.5"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"/>
 
     <TextView
         android:id="@+id/tvOverview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/amaranth"
+        android:lineSpacingExtra="1sp"
+        android:textAlignment="viewStart"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        android:transitionName="movieOverview"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
         tools:text="Maleficent and her goddaughter Aurora begin to question the complex family ties that bind them as they are pulled in different directions by impending nuptials, unexpected allies, and dark new forces at play." />
 </LinearLayout>
