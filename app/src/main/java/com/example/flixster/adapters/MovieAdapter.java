@@ -17,6 +17,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.annotation.GlideModule;
+import com.bumptech.glide.module.AppGlideModule;
 import com.example.flixster.DetailActivity;
 import com.example.flixster.R;
 import com.example.flixster.models.Movie;
@@ -48,8 +50,10 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Log.i("MovieAdapter","onBindViewHolder "+position);
+
         //Get the movie at the passed in position
         Movie movie = movies.get(position);
+
         //Bind the movie into the View Holder
         holder.bind(movie);
     }
@@ -77,8 +81,10 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
         public void bind(final Movie movie) {
             tvTitle.setText(movie.getTitle());
             tvOverview.setText(movie.getOverview());
+
             //Some cases where we want to load the backdrop path!
             String imageURL;
+
             // If phone is in landscape
             if(context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
                 // then imageURL = backdrop image
@@ -88,7 +94,17 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
                 // else imageURL = poster image
                 imageURL = movie.getPosterPath();
             }
+
             Glide.with(context).load(imageURL).into(ivPoster); // imageURL is either backdrop or poster path!
+
+            /*
+            int radius = 30; // corner radius, higher value = more rounded
+            int margin = 10; // crop margin, set to 0 for corners with no crop
+            GlideApp.with(this)
+                    .load("http://via.placeholder.com/300.png")
+                    .transform(new RoundedCornersTransformation(radius, margin))
+                    .into(ivImg);
+             */
 
             // 1. Register click listener on the whole row, not just the title!
             container.setOnClickListener(new View.OnClickListener() {

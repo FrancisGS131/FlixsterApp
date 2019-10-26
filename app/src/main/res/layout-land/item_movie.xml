@@ -12,17 +12,21 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="19dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:paddingRight="5sp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="27dp"
+        android:layout_marginStart="0dp"
         android:layout_toEndOf="@+id/ivPoster"
-        android:textSize="24sp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:paddingBottom="3sp"
         tools:text="Joker" />
 
     <TextView
@@ -33,5 +37,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:layout_toEndOf="@+id/ivPoster"
+        android:textSize="15sp"
+        android:textStyle="italic"
         tools:text="During the 1980s, a failed stand-up comedian is driven insane and turns to a life of crime and chaos in Gotham City while becoming an infamous psychopathic crime figure." />
 </RelativeLayout>
