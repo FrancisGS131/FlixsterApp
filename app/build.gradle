@@ -26,11 +26,14 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+
     implementation 'com.codepath.libraries:asynchttpclient:0.0.9'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
+
     implementation 'com.github.bumptech.glide:glide:4.8.0'
     // Glide v4 uses this new annotation processor -- see https://bumptech.github.io/glide/doc/generatedapi.html
     annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
+
     implementation 'org.parceler:parceler-api:1.1.12'
     annotationProcessor 'org.parceler:parceler:1.1.12'
     implementation files('libs/YouTubeAndroidPlayerApi.jar')
