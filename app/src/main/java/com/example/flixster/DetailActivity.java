@@ -51,7 +51,7 @@ public class DetailActivity extends YouTubeBaseActivity {
         ratingBar.setRating((float) movie.getRating()); // double is a higher precision number compared to a float, so just downcast it!
 
         AsyncHttpClient client = new AsyncHttpClient();
-        client.get(String.format(VIDEOS_URL, 209112), new JsonHttpResponseHandler() {
+        client.get(String.format(VIDEOS_URL, movie.getMovieId()), new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Headers headers, JSON json) {
                 try {
@@ -59,7 +59,8 @@ public class DetailActivity extends YouTubeBaseActivity {
                     if(results.length() == 0) { return; }
 
                     String youtubeKey = results.getJSONObject(0).getString("key");
-                    Log.d("DetailActivity", youtubeKey);
+                    Log.d("DetailActivity", "YouTube Key: "+youtubeKey);
+                    initializeYoutube(youtubeKey);
 
                 } catch (JSONException e) {
                     Log.e("DetailActivity", "Failed to Parse JSON",e);
@@ -72,11 +73,14 @@ public class DetailActivity extends YouTubeBaseActivity {
             }
         });
 
+    }
+
+    private void initializeYoutube(final String youtubeKey) {
         youTubePlayerView.initialize(YOUTUBE_API_KEY, new YouTubePlayer.OnInitializedListener() {
             @Override
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
                 Log.d("DetailActivity", "onInitializationSuccess: ");
-                youTubePlayer.cueVideo("5xVh-7ywKpE");
+                youTubePlayer.cueVideo(youtubeKey);
             }
             @Override
             public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
